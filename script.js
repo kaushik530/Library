@@ -97,9 +97,15 @@ function renderCard(books){
     const removeElement= document.createElement("button");
     removeElement.textContent="remove";
     
-    removeElement.addEventListener("click", () =>{
-        card.remove();
-    });
+    removeElement.addEventListener("click", (event) => {
+    const card = event.target.closest(".book-card"); //closest parent to target with class ".book-card"
+    const id = card.dataset.id;
+
+    const index = myLibrary.findIndex(book => book.id === id);
+
+    myLibrary.splice(index, 1);
+    renderCard(myLibrary);
+});
 
  
     card.appendChild(titleElement);

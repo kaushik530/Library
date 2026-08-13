@@ -3,114 +3,347 @@
     padding: 0;
     box-sizing: border-box;
 }
-.entry{
-    height: 100px;
-    width: auto;
-    padding: 100px;
-    background-color: rgb(211, 211, 211);
+
+:root {
+    --burgundy: #962846;
+    --coral: #F76E4E;
+    --orange: #F7C770;
+    --cream: #F7E6B9;
+    --dark: #22242A;
+}
+
+
+/* ---------- GENERAL ---------- */
+
+body {
+    min-height: 100vh;
+    background-color: var(--cream);
+    color: var(--dark);
+    font-family: Arial, sans-serif;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.site-header {
+    min-height: 70px;
+    padding: 15px 40px;
+
     display: flex;
-    gap: 10px;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--burgundy);
+    color: var(--cream);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    color: white;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-pic{
+    width: 100px;
+    border-radius: 100px;
+    border: 2px solid var(--dark);
+}
+/* ---------- ADD BOOK SECTION ---------- */
+
+.entry {
+    min-height: 160px;
+    padding: 40px;
+
+    background-color: var(--coral);
+
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.bookEntry{
+
+/* ---------- ADD BOOK BUTTON ---------- */
+
+.addBook {
+    padding: 14px 28px;
+
+    border-radius: 12px;
+
+    background-color: var(--orange);
+    color: var(--dark);
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.addBook:hover {
+    background-color: var(--cream);
+}
+
+.addBook:active {
+    transform: scale(0.95);
+}
+
+
+/* ---------- BOOK FORM ---------- */
+
+.bookEntry {
     display: none;
-    position: absolute;
+
+    position: fixed;
     top: 50%;
     left: 50%;
-    background-color: gray;
+
     transform: translate(-50%, -50%);
-    padding: 30px 10px;
+
+    padding: 30px;
+
+    background-color: var(--orange);
+
+    border: 2px solid var(--burgundy);
+    border-radius: 20px;
+
+    z-index: 10;
+}
+
+.bookForm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bookForm > input {
+    width: 220px;
+    padding: 10px;
+
+    border: 2px solid var(--burgundy);
     border-radius: 10px;
+
+    background-color: var(--cream);
+    color: var(--dark);
+
+    outline: none;
 }
 
-.bookForm{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.bookForm > input:focus {
+    border-color: var(--coral);
 }
 
-.formButtons{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5px;
-    gap: 5px;
-    align-items: center;
-}
-.formButtons button{
-    width: 150px;
-}
 
-.readStatus{
+/* ---------- READ STATUS ---------- */
+
+.readStatus {
     display: flex;
     justify-content: center;
-}
-.bookForm > input
-{
     align-items: center;
-    width: 150px ;
-    height: auto;
-    padding: 5px;
-    border-style: none;
-    border-radius: 10px;
+    gap: 8px;
+
+    margin-top: 5px;
+
+    font-weight: bold;
 }
+
+.readStatus input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--burgundy);
+}
+
+
+/* ---------- FORM BUTTONS ---------- */
+
+.formButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.formButtons button {
+    width: 150px;
+    padding: 10px;
+
+    border: 2px solid var(--burgundy);
+    border-radius: 10px;
+
+    background-color: var(--coral);
+    color: var(--dark);
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.formButtons button:hover {
+    background-color: var(--cream);
+}
+
+
+/* ---------- BOOK GRID ---------- */
 
 .bookGrid {
-    margin: 10px;
-    background-color: antiquewhite;
+    margin: 0;
+    padding: 40px;
+
+    background-color: var(--dark);
 
     display: grid;
-    grid-template-columns: repeat(4, 200px);
+    grid-template-columns: repeat(4, 300px);
     gap: 20px;
     justify-content: center;
 }
 
-.book-card {
-    width: 200px;
-    aspect-ratio: 1 / 1;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    background-color: rgb(208, 255, 0);
-}
-
-
-.bookGrid{
-    margin: 10px;
-    background-color: rgb(32, 32, 32);
-    display: grid;
-        grid-template-columns: repeat(4, 300px);
-    gap:20px;
-    justify-content: center;
-}
-
+/* ---------- BOOK CARD ---------- */
 
 .book-card {
     width: 300px;
-    border-radius: 25px;
     aspect-ratio: 1 / 1;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(208, 255, 0);
+
+    background-color: var(--cream);
+    color: var(--dark);
+
+    border: 5px solid var(--orange);
 }
+
+.book-card h3 {
+    margin-bottom: 12px;
+
+    color: var(--burgundy);
+    text-align: center;
+}
+
+.book-card p {
+    margin: 4px 0;
+    text-align: center;
+}
+
+
+/* ---------- CARD BUTTONS ---------- */
+
 .book-card > button {
     margin-top: 10px;
-    width: 120px;
+
+    width: 140px;
     padding: 10px;
-    border: none;
+
+    border: 2px solid var(--burgundy);
     border-radius: 10px;
 
-    background-color: rgb(104, 173, 0);
-    color: white;
+    background-color: var(--coral);
+    color: var(--dark);
 
     font-size: 16px;
     font-weight: bold;
+
     cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        transform 0.15s ease;
 }
+
+.book-card > button:hover {
+    background-color: var(--orange);
+}
+
+.book-card > button:active {
+    transform: scale(0.95);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    min-height: 70px;
+    background-color: var(--burgundy);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1350px) {
+    .bookGrid {
+        grid-template-columns: repeat(3, 280px);
+    }
+
+    .book-card {
+        width: 280px;
+    }
+}
+
+@media (max-width: 950px) {
+    .site-header {
+        padding: 15px 25px;
+    }
+
+    .bookGrid {
+        grid-template-columns: repeat(2, 280px);
+    }
+
+    .book-card {
+        width: 280px;
+    }
+}
+
+@media (max-width: 650px) {
+    .site-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav {
+        gap: 15px;
+    }
+
+    .bookGrid {
+        grid-template-columns: 1fr;
+        padding: 25px;
+        justify-items: center;
+    }
+
+    .book-card {
+        width: min(300px, 90vw);
+    }
+}
+
