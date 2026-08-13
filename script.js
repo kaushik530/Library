@@ -86,18 +86,27 @@ function renderCard(books){
     pagesElement.textContent = `Pages: ${book.pages}`;
 
     const readElement = document.createElement("button");
-    readElement.classList.add("readButton");
     readElement.textContent = book.read ? "Read" : "Not read";
 
     readElement.addEventListener("click", () => {
     book.read = !book.read;
     readElement.textContent = book.read ? "Read" : "Not read";
 });
+
+
+    const removeElement= document.createElement("button");
+    removeElement.textContent="remove";
+    
+    removeElement.addEventListener("click", () =>{
+        card.remove();
+    });
+
  
     card.appendChild(titleElement);
     card.appendChild(authorElement);
     card.appendChild(pagesElement);
     card.appendChild(readElement);
+    card.appendChild(removeElement);
 
     bookGrid.appendChild(card);
     });

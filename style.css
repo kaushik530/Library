@@ -100,7 +100,7 @@
     align-items: center;
     background-color: rgb(208, 255, 0);
 }
-.readButton {
+.book-card > button {
     margin-top: 10px;
     width: 120px;
     padding: 10px;
