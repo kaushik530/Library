@@ -218,7 +218,7 @@ body {
 
     display: grid;
     grid-template-columns: repeat(4, 300px);
-    gap: 20px;
+    gap: 21px;
     justify-content: center;
 }
 
