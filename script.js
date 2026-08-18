@@ -1,3 +1,13 @@
+
+class Book{
+    constructor(title,author,pages,read){
+    this.id=crypto.randomUUID();
+    this.title=title;
+    this.author=author;
+    this.pages=pages;
+    this.read=read;
+    }
+}
 const myLibrary = [
     new Book("The Hobbit", "J.R.R. Tolkien", 310, true),
     new Book("1984", "George Orwell", 328, true),
@@ -8,14 +18,7 @@ const myLibrary = [
     new Book("The Catcher in the Rye", "J.D. Salinger", 277, false),
     new Book("The Name of the Wind", "Patrick Rothfuss", 662, false)
 ];
-function Book(title,author,pages,read) {
-    this.id=crypto.randomUUID();
-    this.title=title;
-    this.author=author;
-    this.pages=pages;
-    this.read=read;
-    
-}
+
 const bookEntry=document.querySelector(".bookEntry");
 const bookForm=document.querySelector(".bookForm");
 const closeForm=document.querySelector(".closeForm");
